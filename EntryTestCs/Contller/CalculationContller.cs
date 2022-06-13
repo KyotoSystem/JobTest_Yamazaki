@@ -27,7 +27,7 @@ namespace EntryTestCs.Contller
         /// 答え
         /// </summary>
         public static double Ans { get; set; }
-
+        
         #endregion
 
         #region メソッド
@@ -45,8 +45,10 @@ namespace EntryTestCs.Contller
             
 
         }
+       
+
         /// <summary>
-        /// インスタンスを作成
+        /// 四則演算インスタンスを作成
         /// </summary>
         /// <param name="num">第一数値</param>
         /// <param name="nums">第二数値</param>
@@ -73,6 +75,8 @@ namespace EntryTestCs.Contller
             return calculation;
 
         }
+
+      
         /// <summary>
         /// 和差積商の答えを取得
         /// </summary>

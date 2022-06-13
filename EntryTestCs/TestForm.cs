@@ -22,7 +22,7 @@ namespace EntryTestCs
         {
             InitializeComponent();
             InitializeTable(this.MultiplicationTableView);
-            DispLabel.Text = "";
+            DispLabel.Text = "0";
             WorkLabel.Text = "";
         }
 
@@ -323,15 +323,18 @@ namespace EntryTestCs
         private void btnSign_Click(object sender, EventArgs e)
         {
             double num = double.Parse(DispLabel.Text);
-            if (DispLabel.Text.Contains("-"))
+            if (DispLabel.Text != "0")
             {
-                double strnum = -num;
-                DispLabel.Text = strnum.ToString();
-            }
-            else
-            {
-                double strnum = -num;
-                DispLabel.Text = strnum.ToString();
+                if (DispLabel.Text.Contains("-"))
+                {
+                    double strnum = -num;
+                    DispLabel.Text = strnum.ToString();
+                }
+                else
+                {
+                    double strnum = -num;
+                    DispLabel.Text = strnum.ToString();
+                }
             }
         }
         #endregion
@@ -343,7 +346,20 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnPercent_Click(object sender, EventArgs e)
         {
-            
+            if (CalculationContller.Ans != 0)
+            {
+                FunctionContller function = new FunctionContller();
+                function.Num = DispLabel.Text;
+                function.Fun = "％";
+                function.GetFunction();
+                DispLabel.Text = FunctionContller.FunAns.ToString();
+                WorkLabel.Text = DispLabel.Text;
+            }
+            else
+            {
+                DispLabel.Text = "0";
+                WorkLabel.Text = "0";
+            }
         }
         /// <summary>
         /// ＜－×ボタン
@@ -362,6 +378,21 @@ namespace EntryTestCs
         private void btnInverse_Click(object sender, EventArgs e)
         {
 
+            if (DispLabel.Text !="0")
+            {
+                FunctionContller function = new FunctionContller();
+                function.Num = DispLabel.Text;
+                function.Fun = "１/X";
+                function.GetFunction();
+                DispLabel.Text = FunctionContller.FunAns.ToString();
+                WorkLabel.Text = String.Format("１/({0})", function.Num);
+            }
+            else
+            {
+                DispLabel.Text = "0で割り切ることはできません";
+                WorkLabel.Text = "１/(0)";
+                
+            }
         }
         /// <summary>
         /// Ｘ２ボタン
@@ -370,7 +401,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnSquare_Click(object sender, EventArgs e)
         {
-
+            FunctionContller function = new FunctionContller();
+            function.Num = DispLabel.Text;
+            function.Fun = "X２";
+            function.GetFunction();
+            DispLabel.Text = FunctionContller.FunAns.ToString();
+            WorkLabel.Text = String.Format("sqr({0})", function.Num);
         }
         /// <summary>
         /// √xボタン
@@ -379,7 +415,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnRoot_Click(object sender, EventArgs e)
         {
-
+            FunctionContller function = new FunctionContller();
+            function.Num = DispLabel.Text;
+            function.Fun = "√x";
+            function.GetFunction();
+            DispLabel.Text = FunctionContller.FunAns.ToString();
+            WorkLabel.Text = String.Format("√({0})", function.Num);
         }
         /// <summary>
         /// ＣＥボタン

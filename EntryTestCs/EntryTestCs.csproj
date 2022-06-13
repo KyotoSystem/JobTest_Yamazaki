@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contller\CalculationContller.cs" />
+    <Compile Include="Contller\FunctionContller.cs" />
     <Compile Include="Model\Add.cs" />
     <Compile Include="Model\Calculation.cs" />
     <Compile Include="Model\Division.cs" />
