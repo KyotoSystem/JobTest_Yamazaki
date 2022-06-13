@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using EntryTestCs.Contller;
 
 namespace EntryTestCs
 {
@@ -39,6 +40,14 @@ namespace EntryTestCs
         /// </remarks>
         private void CalculateButton_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i <= 9; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                {
+                    int x = i * j;
+                    MultiplicationTableView[i, j].Value = x;
+                }
+            }
         }
         #endregion
 
@@ -53,6 +62,7 @@ namespace EntryTestCs
         // DispLabel.Text = "100";
         ///
         #region 演算ボタン
+        public List<string> cal = new List<string> { };
         /// <summary>
         /// ÷ボタン
         /// </summary>
@@ -60,7 +70,17 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnDivision_Click(object sender, EventArgs e)
         {
-            
+            if (DispLabel.Text != "")
+            {
+                cal = new List<string> { };
+                WorkLabel.Text = "";
+                cal.Add(DispLabel.Text);
+                cal.Add(btnDivision.Text);
+                WorkLabel.Text += cal[0] + "÷";
+            }
+
+            DispLabel.Text = "";
+
         }
         /// <summary>
         /// ×ボタン
@@ -69,7 +89,16 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMultiple_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text != "")
+            {
+                cal = new List<string> { };
+                WorkLabel.Text = "";
+                cal.Add(DispLabel.Text);
+                cal.Add(btnMultiple.Text);
+                WorkLabel.Text += cal[0] + "×";
+            }
 
+            DispLabel.Text = "";
         }
         /// <summary>
         /// －ボタン
@@ -78,7 +107,16 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnSub_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text != "")
+            {
+                cal = new List<string> { };
+                WorkLabel.Text = "";
+                cal.Add(DispLabel.Text);
+                cal.Add(btnSub.Text);
+                WorkLabel.Text += cal[0] + "－";
+            }
 
+            DispLabel.Text = "";
         }
         /// <summary>
         /// ＋ボタン
@@ -87,7 +125,16 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text != "")
+            {
+                cal = new List<string> { };
+                WorkLabel.Text = "";
+                cal.Add(DispLabel.Text);
+                cal.Add(btnAdd.Text);
+                WorkLabel.Text += cal[0] + "＋";
+            }
 
+            DispLabel.Text = "";
         }
         /// <summary>
         /// ＝ボタン
@@ -96,7 +143,20 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnEqual_Click(object sender, EventArgs e)
         {
+            if (cal.Count == 2)
+            {
+                cal.Add(DispLabel.Text);
+                WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
+            }
+            else
+            {
+                cal[0] = CalculationContller.Ans.ToString();
+                WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
+            }
 
+            CalculationContller calculation = new CalculationContller(cal);
+            calculation.GetCalculations();
+            DispLabel.Text = CalculationContller.Ans.ToString();
         }
         #endregion
         #region 数値ボタン
@@ -107,7 +167,10 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn0_Click(object sender, EventArgs e)
         {
-
+            if (DispLabel.Text != "0")
+            {
+                DispLabel.Text += "0";
+            }
         }
         /// <summary>
         /// １ボタン
@@ -116,7 +179,11 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn1_Click(object sender, EventArgs e)
         {
-
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
+            DispLabel.Text += "1";
         }
         /// <summary>
         /// ２ボタン
@@ -125,7 +192,11 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn2_Click(object sender, EventArgs e)
         {
-
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
+            DispLabel.Text += "2";
         }
         /// <summary>
         /// ３ボタン
@@ -134,7 +205,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn3_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
 
+            DispLabel.Text += "3";
         }
         /// <summary>
         /// ４ボタン
@@ -143,7 +219,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn4_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
 
+            DispLabel.Text += "4";
         }
         /// <summary>
         /// ５ボタン
@@ -152,7 +233,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn5_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
 
+            DispLabel.Text += "5";
         }
         /// <summary>
         /// ６ボタン
@@ -161,7 +247,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn6_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
 
+            DispLabel.Text += "6";
         }
         /// <summary>
         /// ７ボタン
@@ -170,7 +261,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn7_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
 
+            DispLabel.Text += "7";
         }
         /// <summary>
         /// ８ボタン
@@ -179,7 +275,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn8_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
 
+            DispLabel.Text += "8";
         }
         /// <summary>
         /// ９ボタン
@@ -188,7 +289,12 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn9_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text == "0")
+            {
+                DispLabel.Text = "";
+            }
 
+            DispLabel.Text += "9";
         }
         /// <summary>
         /// ．ボタン
@@ -197,7 +303,15 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnDot_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text.Contains("."))
+            {
+                DispLabel.Text += "";
+            }
+            else if (DispLabel.Text != "")
+            {
 
+                DispLabel.Text += ".";
+            }
         }
         /// <summary>
         /// ＋／－ボタン
@@ -206,7 +320,14 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnSign_Click(object sender, EventArgs e)
         {
+            if (DispLabel.Text.Contains("-"))
+            {
 
+            }
+            else
+            {
+                
+            }
         }
         #endregion
         #region 機能ボタン
@@ -337,25 +458,25 @@ namespace EntryTestCs
         /// </summary>
         /// <param name="grid"></param>
 	    void InitializeTable(DataGridView grid)
-	    {
-		    grid.ColumnCount = 10;
-		    grid.ColumnHeadersHeight = 48; // 460
-		    grid.RowHeadersWidth = 62; // 620
-		    grid.SelectionMode = DataGridViewSelectionMode.CellSelect;
-		    grid.AllowUserToAddRows = false;
-		    grid.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+        {
+            grid.ColumnCount = 10;
+            grid.ColumnHeadersHeight = 48; // 460
+            grid.RowHeadersWidth = 62; // 620
+            grid.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            grid.AllowUserToAddRows = false;
+            grid.RowsDefaultCellStyle.SelectionBackColor = Color.White;
 
-		    for(int i = 0; i < grid.ColumnCount; i++)
-		    {
-			    grid.Rows.Add();
-			    grid.Rows[i].Height = (i == 0) ? 0 : 48;
-			    grid.Rows[i].HeaderCell.Value = String.Format("{0:D}", i);
-		    }
-		    for(int i = 0; i < grid.ColumnCount; i++)
-		    {
-			    grid.Columns[i].Width = (i == 0) ? 0 : 62;
-			    grid.Columns[i].HeaderText = String.Format("{0:D}", i);
-		    }
-	    }
+            for (int i = 0; i < grid.ColumnCount; i++)
+            {
+                grid.Rows.Add();
+                grid.Rows[i].Height = (i == 0) ? 0 : 48;
+                grid.Rows[i].HeaderCell.Value = String.Format("{0:D}", i);
+            }
+            for (int i = 0; i < grid.ColumnCount; i++)
+            {
+                grid.Columns[i].Width = (i == 0) ? 0 : 62;
+                grid.Columns[i].HeaderText = String.Format("{0:D}", i);
+            }
+        }
     }
 }
