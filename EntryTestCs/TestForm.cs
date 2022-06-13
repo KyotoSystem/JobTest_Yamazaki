@@ -157,6 +157,8 @@ namespace EntryTestCs
             CalculationContller calculation = new CalculationContller(cal);
             calculation.GetCalculations();
             DispLabel.Text = CalculationContller.Ans.ToString();
+
+
         }
         #endregion
         #region 数値ボタン
@@ -320,13 +322,16 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnSign_Click(object sender, EventArgs e)
         {
+            double num = double.Parse(DispLabel.Text);
             if (DispLabel.Text.Contains("-"))
             {
-
+                double strnum = -num;
+                DispLabel.Text = strnum.ToString();
             }
             else
             {
-                
+                double strnum = -num;
+                DispLabel.Text = strnum.ToString();
             }
         }
         #endregion
@@ -338,7 +343,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnPercent_Click(object sender, EventArgs e)
         {
-
+            
         }
         /// <summary>
         /// ＜－×ボタン
