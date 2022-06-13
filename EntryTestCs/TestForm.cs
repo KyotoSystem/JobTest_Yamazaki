@@ -407,6 +407,7 @@ namespace EntryTestCs
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
             WorkLabel.Text = String.Format("sqr({0})", function.Num);
+
         }
         /// <summary>
         /// √xボタン
