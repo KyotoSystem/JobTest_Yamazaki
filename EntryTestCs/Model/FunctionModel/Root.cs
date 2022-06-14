@@ -3,33 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EntryTestCs.Model
+namespace EntryTestCs.Model.FunctionModel
 {
-    public class Percent :Function
+    public class Root : Function
     {
         #region コンストラクター
         /// <summary>
         /// コンストラクター
         /// </summary>
         /// <param name="num">数値</param>
-        public Percent(double num) : base(num) { }
+        public Root(double num) : base(num) { }
         #endregion
 
         #region プロパティ
         /// <summary>
-        /// %
+        /// √x
         /// </summary>
-        public double PercentAns { get; set; }
+        public double RootAns { get; set; }
         #endregion
 
         #region メソッド
         /// <summary>
-        /// %の答えを取得
+        /// √xの答えを取得
         /// </summary>
-        /// <returns>%の答え</returns>
-        public virtual double GetPercentAns()
+        /// <returns>√xの答え</returns>
+        public virtual double GetRootAns()
         {
-            return PercentAns = Num / 100;
+            return RootAns = Math.Sqrt(Num);
         }
         #endregion
     }

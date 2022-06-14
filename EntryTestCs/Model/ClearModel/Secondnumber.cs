@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EntryTestCs.Model
+namespace EntryTestCs.Model.ClearModel
 {
-    public class Firstnumber
+    public class Secondnumber
     {
         #region コンストラクター
         /// <summary>
         /// コンストラクター
         /// </summary>
-        /// <param name="fnum">第一数値</param>
-        public Firstnumber(string fnum)
+        /// <param name="snum">第二数値</param>
+        public Secondnumber(string snum)
         {
-            Fnum = fnum;
+            Snum = snum;
         }
         #endregion
 
         #region プロパティ
         /// <summary>
-        /// 第一数値
+        /// 第二数値
         /// </summary>
-        public string Fnum { get; set; }
+        public string Snum { get; set; }
         #endregion
-
     }
 }

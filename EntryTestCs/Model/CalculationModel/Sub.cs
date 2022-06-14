@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EntryTestCs.Model
+namespace EntryTestCs.Model.CalculationModel
 {
-    public class Multiple :Calculation
+    public class Sub : Calculation
     {
         #region　コンストラクター
         /// <summary>
@@ -13,7 +13,7 @@ namespace EntryTestCs.Model
         /// </summary>
         /// <param name="num">第一数値</param>
         /// <param name="nums">第二数値</param>
-        public Multiple(double num, double nums) : base(num,nums) { }
+        public Sub(double num, double nums) : base(num,nums) { }
         #endregion
 
         #region プロパティ
@@ -29,7 +29,7 @@ namespace EntryTestCs.Model
         /// <returns>答え</returns>
         public virtual double GetAns()
         {
-            return Ans = Num * Nums;
+            return Ans = Num - Nums;
         }
         #endregion
     }

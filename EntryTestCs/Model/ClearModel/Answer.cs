@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EntryTestCs.Model
+namespace EntryTestCs.Model.ClearModel
 {
-    public class Function
+    public class Answer
     {
         #region コンストラクター
         /// <summary>
         /// コンストラクター
         /// </summary>
-        /// <param name="num">数値</param>
-        public Function(double num)
+        /// <param name="anum">答え</param>
+        public Answer(string anum)
         {
-            Num = num;
-           
+            Anum = anum;
         }
         #endregion
 
         #region プロパティ
         /// <summary>
-        /// 数値
+        /// 答え
         /// </summary>
-        public double Num { get; set; }
+        public string Anum { get; set; }
         #endregion
     }
 }

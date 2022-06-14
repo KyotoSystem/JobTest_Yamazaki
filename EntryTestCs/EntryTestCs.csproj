@@ -56,19 +56,19 @@
     <Compile Include="Contller\CalculationContller.cs" />
     <Compile Include="Contller\DataClearContller.cs" />
     <Compile Include="Contller\FunctionContller.cs" />
-    <Compile Include="Model\Add.cs" />
-    <Compile Include="Model\Answer.cs" />
-    <Compile Include="Model\Calculation.cs" />
-    <Compile Include="Model\Division.cs" />
-    <Compile Include="Model\Firstnumber.cs" />
-    <Compile Include="Model\Function.cs" />
-    <Compile Include="Model\Inverse.cs" />
-    <Compile Include="Model\Multiple.cs" />
-    <Compile Include="Model\Percent.cs" />
-    <Compile Include="Model\Root.cs" />
-    <Compile Include="Model\Secondnumber.cs" />
-    <Compile Include="Model\Square.cs" />
-    <Compile Include="Model\Sub.cs" />
+    <Compile Include="Model\CalculationModel\Add.cs" />
+    <Compile Include="Model\ClearModel\Answer.cs" />
+    <Compile Include="Model\CalculationModel\Calculation.cs" />
+    <Compile Include="Model\CalculationModel\Division.cs" />
+    <Compile Include="Model\ClearModel\Firstnumber.cs" />
+    <Compile Include="Model\FunctionModel\Function.cs" />
+    <Compile Include="Model\FunctionModel\Inverse.cs" />
+    <Compile Include="Model\CalculationModel\Multiple.cs" />
+    <Compile Include="Model\FunctionModel\Percent.cs" />
+    <Compile Include="Model\FunctionModel\Root.cs" />
+    <Compile Include="Model\ClearModel\Secondnumber.cs" />
+    <Compile Include="Model\FunctionModel\Square.cs" />
+    <Compile Include="Model\CalculationModel\Sub.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
