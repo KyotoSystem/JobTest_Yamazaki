@@ -406,7 +406,8 @@ namespace EntryTestCs
             function.Fun = "X２";
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
-            WorkLabel.Text = String.Format("sqr({0})", function.Num);
+
+            WorkLabel.Text = "sqr("+ WorkLabel.Text + ")"; 
 
         }
         /// <summary>
@@ -421,7 +422,7 @@ namespace EntryTestCs
             function.Fun = "√x";
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
-            WorkLabel.Text = String.Format("√({0})", function.Num);
+            WorkLabel.Text = "√(" + WorkLabel.Text + ")";
         }
         /// <summary>
         /// ＣＥボタン
