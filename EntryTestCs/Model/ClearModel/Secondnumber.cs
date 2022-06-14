@@ -5,14 +5,14 @@ using System.Text;
 
 namespace EntryTestCs.Model.ClearModel
 {
-    public class Secondnumber
+    public class Secondnumber : Clear
     {
         #region コンストラクター
         /// <summary>
         /// コンストラクター
         /// </summary>
         /// <param name="snum">第二数値</param>
-        public Secondnumber(string snum)
+        public Secondnumber(string snum) : base(snum)
         {
             Snum = snum;
         }

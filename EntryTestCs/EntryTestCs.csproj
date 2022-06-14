@@ -60,6 +60,7 @@
     <Compile Include="Model\ClearModel\Answer.cs" />
     <Compile Include="Model\CalculationModel\Calculation.cs" />
     <Compile Include="Model\CalculationModel\Division.cs" />
+    <Compile Include="Model\ClearModel\Clear.cs" />
     <Compile Include="Model\ClearModel\Firstnumber.cs" />
     <Compile Include="Model\FunctionModel\Function.cs" />
     <Compile Include="Model\FunctionModel\Inverse.cs" />

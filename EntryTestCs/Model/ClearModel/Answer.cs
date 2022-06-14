@@ -5,14 +5,14 @@ using System.Text;
 
 namespace EntryTestCs.Model.ClearModel
 {
-    public class Answer
+    public class Answer : Clear
     {
         #region コンストラクター
         /// <summary>
         /// コンストラクター
         /// </summary>
         /// <param name="anum">答え</param>
-        public Answer(string anum)
+        public Answer(string anum) : base(anum)
         {
             Anum = anum;
         }

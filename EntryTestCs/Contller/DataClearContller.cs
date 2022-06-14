@@ -7,6 +7,11 @@ namespace EntryTestCs.Contller
 {
     public class DataClearContller
     {
-        
+       public Clear GetClear()
+        {
+            Clear clear = null;
+            
+            return clear;
+        }
     }
 }
