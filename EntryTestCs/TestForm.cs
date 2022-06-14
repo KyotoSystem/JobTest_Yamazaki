@@ -63,6 +63,7 @@ namespace EntryTestCs
         ///
         #region 演算ボタン
         public List<string> cal = new List<string> { };
+       
         /// <summary>
         /// ÷ボタン
         /// </summary>
@@ -368,7 +369,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnUndo_Click(object sender, EventArgs e)
         {
-
+            
         }
         /// <summary>
         /// １／Ｘボタン
@@ -406,7 +407,6 @@ namespace EntryTestCs
             function.Fun = "X２";
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
-
             WorkLabel.Text = "sqr("+ WorkLabel.Text + ")"; 
 
         }
@@ -440,7 +440,8 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            WorkLabel.Text = "";
+            DispLabel.Text = "0";
         }
         #endregion
         #region メモリーボタン
