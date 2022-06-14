@@ -57,7 +57,6 @@
     <Compile Include="Contller\DataClearContller.cs" />
     <Compile Include="Contller\FunctionContller.cs" />
     <Compile Include="Model\CalculationModel\Add.cs" />
-    <Compile Include="Model\ClearModel\Answer.cs" />
     <Compile Include="Model\CalculationModel\Calculation.cs" />
     <Compile Include="Model\CalculationModel\Division.cs" />
     <Compile Include="Model\ClearModel\Clear.cs" />

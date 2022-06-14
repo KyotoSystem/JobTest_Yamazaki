@@ -25,6 +25,25 @@ namespace EntryTestCs.Model.ClearModel
         public string Fnum { get; set; }
         #endregion
 
+        #region メソッド
+        /// <summary>
+        /// 一文字削除後の数値を取得
+        /// </summary>
+        /// <returns>第一数値</returns>
+        public virtual string GetFum()
+        {
+            if(Num.Length != 1)
+            {
+                Fnum = Num.Substring(0, Num.Length - 1);
+            }
+            else
+            {
+                Fnum = "0";
+            }
+            return Fnum;
+        }
+        #endregion
+
 
     }
 }

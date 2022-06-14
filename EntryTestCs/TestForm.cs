@@ -63,7 +63,7 @@ namespace EntryTestCs
         ///
         #region 演算ボタン
         public List<string> cal = new List<string> { };
-       
+        public string Operation { get; set; }
         /// <summary>
         /// ÷ボタン
         /// </summary>
@@ -81,7 +81,7 @@ namespace EntryTestCs
             }
 
             DispLabel.Text = "";
-
+            Operation = "Operation";
         }
         /// <summary>
         /// ×ボタン
@@ -100,6 +100,7 @@ namespace EntryTestCs
             }
 
             DispLabel.Text = "";
+            Operation = "Operation";
         }
         /// <summary>
         /// －ボタン
@@ -118,6 +119,7 @@ namespace EntryTestCs
             }
 
             DispLabel.Text = "";
+            Operation = "Operation";
         }
         /// <summary>
         /// ＋ボタン
@@ -136,6 +138,7 @@ namespace EntryTestCs
             }
 
             DispLabel.Text = "";
+            Operation = "Operation";
         }
         /// <summary>
         /// ＝ボタン
@@ -158,7 +161,7 @@ namespace EntryTestCs
             CalculationContller calculation = new CalculationContller(cal);
             calculation.GetCalculations();
             DispLabel.Text = CalculationContller.Ans.ToString();
-
+            Operation = "Equal";
 
         }
         #endregion
@@ -369,6 +372,21 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnUndo_Click(object sender, EventArgs e)
         {
+            DataClearContller dataClear = new DataClearContller();
+            dataClear.Ope = Operation;
+            if (Operation != "Equal")
+            {
+                if (Operation == "Operation" || Operation == null)
+                {
+                    dataClear.Num = DispLabel.Text;
+                    dataClear.GetClear();
+                    DispLabel.Text = DataClearContller.ClearNum;
+                }
+            }
+            else if(Operation == "Equal")
+            {
+                WorkLabel.Text = "";
+            }
             
         }
         /// <summary>
@@ -394,6 +412,7 @@ namespace EntryTestCs
                 WorkLabel.Text = "１/(0)";
                 
             }
+            Operation = "Inverse";
         }
         /// <summary>
         /// Ｘ２ボタン
@@ -407,7 +426,8 @@ namespace EntryTestCs
             function.Fun = "X２";
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
-            WorkLabel.Text = "sqr("+ WorkLabel.Text + ")"; 
+            WorkLabel.Text = "sqr("+ WorkLabel.Text + ")";
+            Operation = "Square";
 
         }
         /// <summary>
@@ -423,6 +443,7 @@ namespace EntryTestCs
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
             WorkLabel.Text = "√(" + WorkLabel.Text + ")";
+            Operation = "Root";
         }
         /// <summary>
         /// ＣＥボタン
@@ -431,7 +452,15 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnCE_Click(object sender, EventArgs e)
         {
-
+            if(Operation == "Operation" || Operation == null)
+            {
+                DispLabel.Text = "";
+            }
+            else
+            {
+                DispLabel.Text = "";
+                WorkLabel.Text = "";
+            }
         }
         /// <summary>
         /// Ｃボタン

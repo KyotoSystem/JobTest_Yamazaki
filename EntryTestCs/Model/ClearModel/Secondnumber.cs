@@ -24,5 +24,16 @@ namespace EntryTestCs.Model.ClearModel
         /// </summary>
         public string Snum { get; set; }
         #endregion
+
+        #region メソッド
+        /// <summary>
+        /// 一文字削除後の数値を取得
+        /// </summary>
+        /// <returns>第二数値</returns>
+        public virtual string GetSum()
+        {
+            return Snum = Num.Substring(0, Num.Length - 1);
+        }
+        #endregion
     }
 }

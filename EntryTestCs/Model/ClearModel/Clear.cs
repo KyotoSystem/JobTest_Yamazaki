@@ -8,9 +8,9 @@ namespace EntryTestCs.Model.ClearModel
     public class Clear
     {
 
-        public Clear(string unm)
+        public Clear(string num)
         {
-            Num = Num; 
+            Num = num;
         }
 
         public string Num { get; set; }
