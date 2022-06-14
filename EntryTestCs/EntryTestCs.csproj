@@ -57,13 +57,16 @@
     <Compile Include="Contller\DataClearContller.cs" />
     <Compile Include="Contller\FunctionContller.cs" />
     <Compile Include="Model\Add.cs" />
+    <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Calculation.cs" />
     <Compile Include="Model\Division.cs" />
+    <Compile Include="Model\Firstnumber.cs" />
     <Compile Include="Model\Function.cs" />
     <Compile Include="Model\Inverse.cs" />
     <Compile Include="Model\Multiple.cs" />
     <Compile Include="Model\Percent.cs" />
     <Compile Include="Model\Root.cs" />
+    <Compile Include="Model\Secondnumber.cs" />
     <Compile Include="Model\Square.cs" />
     <Compile Include="Model\Sub.cs" />
     <Compile Include="TestForm.cs">
