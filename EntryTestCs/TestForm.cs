@@ -24,6 +24,9 @@ namespace EntryTestCs
             InitializeTable(this.MultiplicationTableView);
             DispLabel.Text = "0";
             WorkLabel.Text = "";
+            btnMmemory.Enabled = false;
+            btnMR.Enabled = false;
+            btnMC.Enabled = false;
         }
 
         #region 九九表の実装
@@ -475,13 +478,20 @@ namespace EntryTestCs
         #endregion
         #region メモリーボタン
         /// <summary>
+        /// メモリー保存
+        /// </summary>
+        public string MemoryNum { get; set; }
+        /// <summary>
         /// ＭＣボタン
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnMC_Click(object sender, EventArgs e)
         {
-
+            MemoryNum = "";
+            btnMmemory.Enabled = false;
+            btnMR.Enabled = false;
+            btnMC.Enabled = false;
         }
         /// <summary>
         /// ＭＲボタン
@@ -517,7 +527,10 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMS_Click(object sender, EventArgs e)
         {
-
+            MemoryNum = DispLabel.Text;
+            btnMmemory.Enabled = true;
+            btnMR.Enabled = true;
+            btnMC.Enabled = true;
         }
         /// <summary>
         /// Ｍメモリボタン
@@ -526,7 +539,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMmemory_Click(object sender, EventArgs e)
         {
-
+            DispLabel.Text = MemoryNum;
         }
         #endregion
         #endregion

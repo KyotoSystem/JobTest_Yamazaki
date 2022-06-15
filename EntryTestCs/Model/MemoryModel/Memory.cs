@@ -12,9 +12,9 @@ namespace EntryTestCs.Model.MemoryModel
         /// コンストラクター
         /// </summary>
         /// <param name="Mnum">メモリ数値</param>
-        public Memory(double Mnum)
+        public Memory(double mnum)
         {
-            MNum = Mnum;
+            MNum = mnum;
         }
         #endregion
 
