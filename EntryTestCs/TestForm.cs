@@ -500,7 +500,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMR_Click(object sender, EventArgs e)
         {
-
+            DispLabel.Text = MemoryNum;
         }
         /// <summary>
         /// Ｍ＋ボタン
@@ -509,7 +509,11 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMplus_Click(object sender, EventArgs e)
         {
-
+            MemoryContller memory = new MemoryContller();
+            memory.MNum = MemoryNum;
+            memory.Mstr = "M+";
+            memory.GetMemory();
+            MemoryNum = MemoryContller.MnumAnswer.ToString();
         }
         /// <summary>
         /// Ｍ－ボタン
@@ -518,7 +522,11 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMminus_Click(object sender, EventArgs e)
         {
-
+            MemoryContller memory = new MemoryContller();
+            memory.MNum = MemoryNum;
+            memory.Mstr = "M-";
+            memory.GetMemory();
+            MemoryNum = MemoryContller.MnumAnswer.ToString();
         }
         /// <summary>
         /// ＭＳボタン
