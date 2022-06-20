@@ -54,6 +54,45 @@ namespace EntryTestCs
         }
         #endregion
 
+        #region 電卓の一部機能停止と開始
+        public bool flag { get; set; }
+        public void Stop()
+        {
+            //数値
+            btnDot.Enabled = false;
+            btnSign.Enabled = false;
+            //演算子
+            btnDivision.Enabled = false;
+            btnMultiple.Enabled = false;
+            btnAdd.Enabled = false;
+            btnSub.Enabled = false;
+            //機能
+            btnPercent.Enabled = false;
+            btnSquare.Enabled = false;
+            btnInverse.Enabled = false;
+            btnRoot.Enabled = false;
+            flag = true;
+        }
+
+        public void Start()
+        {
+            //数値
+            btnDot.Enabled = true;
+            btnSign.Enabled = true;
+            //演算子
+            btnDivision.Enabled = true;
+            btnMultiple.Enabled = true;
+            btnAdd.Enabled = true;
+            btnSub.Enabled = true;
+            //機能
+            btnPercent.Enabled = true;
+            btnSquare.Enabled = true;
+            btnInverse.Enabled = true;
+            btnRoot.Enabled = true;
+            flag = false;
+
+        }
+        #endregion
         #region 電卓の実装
         ///
         /// TODO: ここに電卓 コードを実装します
@@ -147,38 +186,50 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            if (cal.Count == 2)
+            if (flag == false)
             {
-                cal.Add(DispLabel.Text);
+                if (cal.Count != 0)
+                {
+                    if (cal.Count == 2)
+                    {
+                        cal.Add(DispLabel.Text);
+                    }
+                    else
+                    {
+                        cal[0] = CalculationContller.Ans.ToString();
+                    }
+                    CalculationContller calculation = new CalculationContller(cal);
+                    calculation.GetCalculations();
+                    if (cal.Contains("÷"))
+                    {
+                        if (double.IsInfinity(CalculationContller.Ans))
+                        {
+                            WorkLabel.Text = cal[0] + cal[1];
+                            DispLabel.Text = "0で割り切ることはできません";
+                            Stop();
+                        }
+                        else
+                        {
+                            WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
+                            DispLabel.Text = CalculationContller.Ans.ToString();
+                            Num = DispLabel.Text;
+                        }
+                    }
+                    else
+                    {
+                        WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
+                        DispLabel.Text = CalculationContller.Ans.ToString();
+                        Num = DispLabel.Text;
+                    }
+                    Operation = "Equal";
+                }
             }
             else
             {
-                cal[0] = CalculationContller.Ans.ToString();
+                Start();
+                WorkLabel.Text = "";
+                DispLabel.Text = "0";
             }
-            CalculationContller calculation = new CalculationContller(cal);
-            calculation.GetCalculations();
-            if(cal.Contains("÷"))
-            {
-                if(double.IsInfinity(CalculationContller.Ans))
-                {
-                    WorkLabel.Text = cal[0] + cal[1];
-                    DispLabel.Text = "0で割り切ることはできません";
-                }
-                else
-                {
-                    WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
-                    DispLabel.Text = CalculationContller.Ans.ToString();
-                    Num = DispLabel.Text;
-                }
-            }
-            else
-            {
-                WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
-                DispLabel.Text = CalculationContller.Ans.ToString();
-                Num = DispLabel.Text;
-            }
-            Operation = "Equal";
-
         }
         #endregion
         #region 数値ボタン
@@ -191,9 +242,14 @@ namespace EntryTestCs
         {
             if (DispLabel.Text != "0")
             {
+                if (DispLabel.Text == "0で割り切ることはできません")
+                {
+                    DispLabel.Text = "";
+                }
                 if (Num == null)
                 {
                     DispLabel.Text += "0";
+                    Start();
                 }
                 else
                 {
@@ -214,7 +270,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn1_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -222,6 +278,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "1";
+                Start();
             }
             else
             {
@@ -240,13 +297,14 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn2_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
             if (Num == null)
             {
                 DispLabel.Text += "2";
+                Start();
             }
             else
             {
@@ -265,7 +323,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn3_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -273,6 +331,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "3";
+                Start();
             }
             else
             {
@@ -291,7 +350,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn4_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -299,6 +358,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "4";
+                Start();
             }
             else
             {
@@ -317,7 +377,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn5_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -325,6 +385,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "5";
+                Start();
             }
             else
             {
@@ -343,7 +404,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn6_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -351,6 +412,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "6";
+                Start();
             }
             else
             {
@@ -369,7 +431,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn7_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -377,6 +439,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "7";
+                Start();
             }
             else
             {
@@ -395,7 +458,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn8_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -403,6 +466,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "8";
+                Start();
             }
             else
             {
@@ -421,7 +485,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btn9_Click(object sender, EventArgs e)
         {
-            if (DispLabel.Text == "0")
+            if (DispLabel.Text == "0" || DispLabel.Text == "0で割り切ることはできません")
             {
                 DispLabel.Text = "";
             }
@@ -429,6 +493,7 @@ namespace EntryTestCs
             if (Num == null)
             {
                 DispLabel.Text += "9";
+                Start();
             }
             else
             {
@@ -490,6 +555,7 @@ namespace EntryTestCs
         {
             if (CalculationContller.Ans != 0)
             {
+                cal = new List<string> { };
                 FunctionContller function = new FunctionContller();
                 function.Num = DispLabel.Text;
                 function.Fun = "％";
@@ -511,6 +577,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnUndo_Click(object sender, EventArgs e)
         {
+            cal = new List<string> { };
             DataClearContller dataClear = new DataClearContller();
             dataClear.Ope = Operation;
             if (Operation != "Equal")
@@ -526,7 +593,13 @@ namespace EntryTestCs
             {
                 WorkLabel.Text = "";
             }
-            
+            if(flag == true)
+            {
+                Start();
+                WorkLabel.Text = "";
+                DispLabel.Text = "0";
+            }
+
         }
         /// <summary>
         /// １／Ｘボタン
@@ -538,6 +611,7 @@ namespace EntryTestCs
 
             if (DispLabel.Text !="0")
             {
+                cal = new List<string> { };
                 FunctionContller function = new FunctionContller();
                 function.Num = DispLabel.Text;
                 function.Fun = "１/X";
@@ -555,6 +629,7 @@ namespace EntryTestCs
             {
                 DispLabel.Text = "0で割り切ることはできません";
                 WorkLabel.Text = "１/(0)";
+                Stop();
                 
             }
             Operation = "Inverse";
@@ -566,6 +641,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnSquare_Click(object sender, EventArgs e)
         {
+            cal = new List<string> { };
             FunctionContller function = new FunctionContller();
             function.Num = DispLabel.Text;
             function.Fun = "X２";
@@ -587,6 +663,7 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnRoot_Click(object sender, EventArgs e)
         {
+            cal = new List<string> { };
             FunctionContller function = new FunctionContller();
             function.Num = DispLabel.Text;
             function.Fun = "√x";
@@ -599,6 +676,7 @@ namespace EntryTestCs
             WorkLabel.Text = "√(" + WorkLabel.Text + ")";
             Num = DispLabel.Text;
             Operation = "Root";
+            
         }
         /// <summary>
         /// ＣＥボタン
@@ -616,6 +694,8 @@ namespace EntryTestCs
                 DispLabel.Text = "";
                 WorkLabel.Text = "";
             }
+            cal = new List<string> { };
+            Start();
         }
         /// <summary>
         /// Ｃボタン
@@ -624,8 +704,10 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
+            cal = new List<string> { };
             WorkLabel.Text = "";
             DispLabel.Text = "0";
+            Start();
         }
         #endregion
         #region メモリーボタン
