@@ -24,6 +24,11 @@ namespace EntryTestCs.Contller
             return memory;
         }
 
+        /// <summary>
+        /// メモリインスタンス作成
+        /// </summary>
+        /// <param name="mnum">メモリ</param>
+        /// <returns></returns>
         public Memory MemoryType(double mnum)
         {
             Memory memory = null;
@@ -41,6 +46,10 @@ namespace EntryTestCs.Contller
 
         }
 
+        /// <summary>
+        /// メモリ計算の答え取得
+        /// </summary>
+        /// <param name="memory">メモリ計算</param>
         public static void GetMemoryAnswer(Memory memory)
         {
             if(memory is Mplus mplus)
@@ -56,7 +65,10 @@ namespace EntryTestCs.Contller
             }
         }
 
-
+        /// <summary>
+        /// M+の答えを取得
+        /// </summary>
+        /// <param name="mplus">M+</param>
         public static void GetMplusAnswer(Mplus mplus)
         {
             mplus.GetMpNum();
@@ -64,6 +76,10 @@ namespace EntryTestCs.Contller
 
         }
 
+        /// <summary>
+        /// M-の答えを取得
+        /// </summary>
+        /// <param name="mminus">M-</param>
         public static void GetMminusAnswer(Mminus mminus)
         {
             mminus.GetMmNum();
