@@ -32,6 +32,7 @@ namespace EntryTestCs
             seekView[12, 12].Value = "●";
 
             seekView[1, 1].Value = "★";
+
         }
 
         #region 九九表の実装
