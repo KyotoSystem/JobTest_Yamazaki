@@ -67,6 +67,7 @@ namespace EntryTestCs
         #region 演算ボタン
         public List<string> cal = new List<string> { };
         public string Operation { get; set; }
+        public string Num { get; set; }
         /// <summary>
         /// ÷ボタン
         /// </summary>
@@ -81,9 +82,8 @@ namespace EntryTestCs
                 cal.Add(DispLabel.Text);
                 cal.Add(btnDivision.Text);
                 WorkLabel.Text += cal[0] + "÷";
+                Num = DispLabel.Text;
             }
-
-            DispLabel.Text = "";
             Operation = "Operation";
         }
         /// <summary>
@@ -98,11 +98,10 @@ namespace EntryTestCs
                 cal = new List<string> { };
                 WorkLabel.Text = "";
                 cal.Add(DispLabel.Text);
-                cal.Add(btnMultiple.Text);
+                cal.Add(btnDivision.Text);
                 WorkLabel.Text += cal[0] + "×";
+                Num = DispLabel.Text;
             }
-
-            DispLabel.Text = "";
             Operation = "Operation";
         }
         /// <summary>
@@ -118,10 +117,9 @@ namespace EntryTestCs
                 WorkLabel.Text = "";
                 cal.Add(DispLabel.Text);
                 cal.Add(btnSub.Text);
-                WorkLabel.Text += cal[0] + "－";
+                WorkLabel.Text += cal[0] + "-";
+                Num = DispLabel.Text;
             }
-
-            DispLabel.Text = "";
             Operation = "Operation";
         }
         /// <summary>
@@ -137,10 +135,9 @@ namespace EntryTestCs
                 WorkLabel.Text = "";
                 cal.Add(DispLabel.Text);
                 cal.Add(btnAdd.Text);
-                WorkLabel.Text += cal[0] + "＋";
+                WorkLabel.Text += cal[0] + "+";
+                Num = DispLabel.Text;
             }
-
-            DispLabel.Text = "";
             Operation = "Operation";
         }
         /// <summary>
@@ -153,17 +150,33 @@ namespace EntryTestCs
             if (cal.Count == 2)
             {
                 cal.Add(DispLabel.Text);
-                WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
             }
             else
             {
                 cal[0] = CalculationContller.Ans.ToString();
-                WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
             }
-
             CalculationContller calculation = new CalculationContller(cal);
             calculation.GetCalculations();
-            DispLabel.Text = CalculationContller.Ans.ToString();
+            if(cal.Contains("÷"))
+            {
+                if(double.IsInfinity(CalculationContller.Ans))
+                {
+                    WorkLabel.Text = cal[0] + cal[1];
+                    DispLabel.Text = "0で割り切ることはできません";
+                }
+                else
+                {
+                    WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
+                    DispLabel.Text = CalculationContller.Ans.ToString();
+                    Num = DispLabel.Text;
+                }
+            }
+            else
+            {
+                WorkLabel.Text = cal[0] + cal[1] + cal[2] + "=";
+                DispLabel.Text = CalculationContller.Ans.ToString();
+                Num = DispLabel.Text;
+            }
             Operation = "Equal";
 
         }
@@ -178,7 +191,20 @@ namespace EntryTestCs
         {
             if (DispLabel.Text != "0")
             {
-                DispLabel.Text += "0";
+                if (Num == null)
+                {
+                    DispLabel.Text += "0";
+                }
+                else
+                {
+                    DispLabel.Text = "0";
+                    if(Operation == "Equal")
+                    {
+                        WorkLabel.Text = "";
+                    }
+                    Num = null;
+                }
+
             }
         }
         /// <summary>
@@ -192,7 +218,20 @@ namespace EntryTestCs
             {
                 DispLabel.Text = "";
             }
-            DispLabel.Text += "1";
+
+            if (Num == null)
+            {
+                DispLabel.Text += "1";
+            }
+            else
+            {
+                DispLabel.Text = "1";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ２ボタン
@@ -205,7 +244,19 @@ namespace EntryTestCs
             {
                 DispLabel.Text = "";
             }
-            DispLabel.Text += "2";
+            if (Num == null)
+            {
+                DispLabel.Text += "2";
+            }
+            else
+            {
+                DispLabel.Text = "2";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ３ボタン
@@ -219,7 +270,19 @@ namespace EntryTestCs
                 DispLabel.Text = "";
             }
 
-            DispLabel.Text += "3";
+            if (Num == null)
+            {
+                DispLabel.Text += "3";
+            }
+            else
+            {
+                DispLabel.Text = "3";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ４ボタン
@@ -233,7 +296,19 @@ namespace EntryTestCs
                 DispLabel.Text = "";
             }
 
-            DispLabel.Text += "4";
+            if (Num == null)
+            {
+                DispLabel.Text += "4";
+            }
+            else
+            {
+                DispLabel.Text = "4";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ５ボタン
@@ -247,7 +322,19 @@ namespace EntryTestCs
                 DispLabel.Text = "";
             }
 
-            DispLabel.Text += "5";
+            if (Num == null)
+            {
+                DispLabel.Text += "5";
+            }
+            else
+            {
+                DispLabel.Text = "5";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ６ボタン
@@ -261,7 +348,19 @@ namespace EntryTestCs
                 DispLabel.Text = "";
             }
 
-            DispLabel.Text += "6";
+            if (Num == null)
+            {
+                DispLabel.Text += "6";
+            }
+            else
+            {
+                DispLabel.Text = "6";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ７ボタン
@@ -275,7 +374,19 @@ namespace EntryTestCs
                 DispLabel.Text = "";
             }
 
-            DispLabel.Text += "7";
+            if (Num == null)
+            {
+                DispLabel.Text += "7";
+            }
+            else
+            {
+                DispLabel.Text = "7";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ８ボタン
@@ -289,7 +400,19 @@ namespace EntryTestCs
                 DispLabel.Text = "";
             }
 
-            DispLabel.Text += "8";
+            if (Num == null)
+            {
+                DispLabel.Text += "8";
+            }
+            else
+            {
+                DispLabel.Text = "8";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ９ボタン
@@ -303,7 +426,19 @@ namespace EntryTestCs
                 DispLabel.Text = "";
             }
 
-            DispLabel.Text += "9";
+            if (Num == null)
+            {
+                DispLabel.Text += "9";
+            }
+            else
+            {
+                DispLabel.Text = "9";
+                if (Operation == "Equal")
+                {
+                    WorkLabel.Text = "";
+                }
+                Num = null;
+            }
         }
         /// <summary>
         /// ．ボタン
@@ -361,6 +496,7 @@ namespace EntryTestCs
                 function.GetFunction();
                 DispLabel.Text = FunctionContller.FunAns.ToString();
                 WorkLabel.Text = DispLabel.Text;
+                Num = DispLabel.Text;
             }
             else
             {
@@ -407,7 +543,13 @@ namespace EntryTestCs
                 function.Fun = "１/X";
                 function.GetFunction();
                 DispLabel.Text = FunctionContller.FunAns.ToString();
+                if (Operation != "Inverse")
+                {
+                    WorkLabel.Text = "";
+                }
+                
                 WorkLabel.Text = String.Format("１/({0})", function.Num);
+                Num = DispLabel.Text;
             }
             else
             {
@@ -429,7 +571,12 @@ namespace EntryTestCs
             function.Fun = "X２";
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
+            if(Operation != "Square")
+            {
+                WorkLabel.Text = "";
+            }
             WorkLabel.Text = "sqr("+ WorkLabel.Text + ")";
+            Num = DispLabel.Text;
             Operation = "Square";
 
         }
@@ -445,7 +592,12 @@ namespace EntryTestCs
             function.Fun = "√x";
             function.GetFunction();
             DispLabel.Text = FunctionContller.FunAns.ToString();
+            if(Operation != "Root")
+            {
+                WorkLabel.Text = "";
+            }
             WorkLabel.Text = "√(" + WorkLabel.Text + ")";
+            Num = DispLabel.Text;
             Operation = "Root";
         }
         /// <summary>
@@ -482,13 +634,18 @@ namespace EntryTestCs
         /// </summary>
         public string MemoryNum { get; set; }
         /// <summary>
+        /// メモリー計算
+        /// </summary>
+        public string MemoryNums { get; set; }
+        /// <summary>
         /// ＭＣボタン
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnMC_Click(object sender, EventArgs e)
         {
-            MemoryNum = "";
+            MemoryNum = null;
+            MemoryNums = null;
             btnMmemory.Enabled = false;
             btnMR.Enabled = false;
             btnMC.Enabled = false;
@@ -501,6 +658,7 @@ namespace EntryTestCs
         private void btnMR_Click(object sender, EventArgs e)
         {
             DispLabel.Text = MemoryNum;
+            MemoryNums = DispLabel.Text;
         }
         /// <summary>
         /// Ｍ＋ボタン
@@ -509,11 +667,23 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMplus_Click(object sender, EventArgs e)
         {
-            MemoryContller memory = new MemoryContller();
-            memory.MNum = MemoryNum;
-            memory.Mstr = "M+";
-            memory.GetMemory();
-            MemoryNum = MemoryContller.MnumAnswer.ToString();
+            if (MemoryNums == null)
+            {
+                MemoryNum = DispLabel.Text;
+                MemoryNums = DispLabel.Text;
+                btnMmemory.Enabled = true;
+                btnMR.Enabled = true;
+                btnMC.Enabled = true;
+            }
+            else
+            {
+                MemoryContller memory = new MemoryContller();
+                memory.MNum = MemoryNum;
+                memory.MNums = MemoryNums;
+                memory.Mstr = "M+";
+                memory.GetMemory();
+                MemoryNum = MemoryContller.MnumAnswer.ToString();
+            }
         }
         /// <summary>
         /// Ｍ－ボタン
@@ -522,11 +692,23 @@ namespace EntryTestCs
         /// <param name="e"></param>
         private void btnMminus_Click(object sender, EventArgs e)
         {
-            MemoryContller memory = new MemoryContller();
-            memory.MNum = MemoryNum;
-            memory.Mstr = "M-";
-            memory.GetMemory();
-            MemoryNum = MemoryContller.MnumAnswer.ToString();
+            if (MemoryNums == null)
+            {
+                MemoryNum = DispLabel.Text;
+                MemoryNums = DispLabel.Text;
+                btnMmemory.Enabled = true;
+                btnMR.Enabled = true;
+                btnMC.Enabled = true;
+            }
+            else
+            {
+                MemoryContller memory = new MemoryContller();
+                memory.MNum = MemoryNum;
+                memory.MNums = MemoryNums;
+                memory.Mstr = "M-";
+                memory.GetMemory();
+                MemoryNum = MemoryContller.MnumAnswer.ToString();
+            }
         }
         /// <summary>
         /// ＭＳボタン
@@ -536,6 +718,7 @@ namespace EntryTestCs
         private void btnMS_Click(object sender, EventArgs e)
         {
             MemoryNum = DispLabel.Text;
+            MemoryNums = DispLabel.Text;
             btnMmemory.Enabled = true;
             btnMR.Enabled = true;
             btnMC.Enabled = true;
@@ -548,6 +731,7 @@ namespace EntryTestCs
         private void btnMmemory_Click(object sender, EventArgs e)
         {
             DispLabel.Text = MemoryNum;
+            MemoryNums = DispLabel.Text;
         }
         #endregion
         #endregion

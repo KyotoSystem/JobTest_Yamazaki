@@ -29,6 +29,7 @@ namespace EntryTestCs.Model.CalculationModel
         /// <returns>答え</returns>
         public virtual double GetAns()
         {
+            
             return Ans = Num / Nums;
         }
         #endregion

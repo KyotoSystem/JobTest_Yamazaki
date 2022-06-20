@@ -11,18 +11,24 @@ namespace EntryTestCs.Model.MemoryModel
         /// <summary>
         /// コンストラクター
         /// </summary>
-        /// <param name="Mnum">メモリ数値</param>
-        public Memory(double mnum)
+        /// <param name="mnum">第一メモリ数値</param>
+        /// <param name="mnums">第二メモリ数値</param>
+        public Memory(double mnum , double mnums)
         {
             MNum = mnum;
+            MNums = mnums;
         }
         #endregion
 
         #region プロパティ
         /// <summary>
-        /// メモリ数値
+        /// 第一メモリ数値
         /// </summary>
         public double MNum { get; set; }
+        /// <summary>
+        /// 第二メモリ数値
+        /// </summary>
+        public double MNums { get; set; }
         #endregion
     }
 }

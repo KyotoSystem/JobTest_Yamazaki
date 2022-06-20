@@ -11,8 +11,9 @@ namespace EntryTestCs.Model.MemoryModel
         /// <summary>
         /// コンストラクター
         /// </summary>
-        /// <param name="mpnum">メモリー数値</param>
-        public Mplus(double mpnum) : base(mpnum) { }
+        /// <param name="mpnum">第一メモリー数値</param>
+        /// <param name="mpnums">第二メモリー数値</param>
+        public Mplus(double mpnum , double mpnums) : base(mpnum , mpnums) { }
 　　　　#endregion
 
         #region プロパティ
@@ -29,7 +30,7 @@ namespace EntryTestCs.Model.MemoryModel
         /// <returns>メモリー数値(和)</returns>
         public virtual double GetMpNum()
         {
-            return MpNum = MNum + MNum;
+            return MpNum = MNum + MNums;
         }
         #endregion
     }

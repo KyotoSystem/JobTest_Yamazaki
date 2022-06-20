@@ -10,6 +10,7 @@ namespace EntryTestCs.Contller
     {
         #region プロパティ
         public string MNum { get; set; }
+        public string MNums { get; set; }
         public string Mstr { get; set; }  
         public static double MnumAnswer { get; set; }
         #endregion
@@ -18,9 +19,9 @@ namespace EntryTestCs.Contller
         public Memory GetMemory()
         {
             Memory memory = null;
-            double mnum;
-            mnum = double.Parse(MNum);
-            memory = MemoryType(mnum);
+            double mnum = double.Parse(MNum);
+            double mnums = double .Parse(MNums);
+            memory = MemoryType(mnum, mnums);
             return memory;
         }
 
@@ -29,16 +30,16 @@ namespace EntryTestCs.Contller
         /// </summary>
         /// <param name="mnum">メモリ</param>
         /// <returns></returns>
-        public Memory MemoryType(double mnum)
+        public Memory MemoryType(double mnum , double mnums)
         {
             Memory memory = null;
             switch (Mstr)
             {
                 case "M+":
-                    memory = new Mplus(mnum);
+                    memory = new Mplus(mnum ,mnums);
                     break;
                 case "M-":
-                    memory = new Mminus(mnum);
+                    memory = new Mminus(mnum , mnums);
                     break;
             }
             GetMemoryAnswer(memory);
