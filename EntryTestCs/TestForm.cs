@@ -719,6 +719,7 @@ namespace EntryTestCs
         {
             MemoryNum = DispLabel.Text;
             MemoryNums = DispLabel.Text;
+            Num = MemoryNum;
             btnMmemory.Enabled = true;
             btnMR.Enabled = true;
             btnMC.Enabled = true;
@@ -732,6 +733,7 @@ namespace EntryTestCs
         {
             DispLabel.Text = MemoryNum;
             MemoryNums = DispLabel.Text;
+            Num = MemoryNum;
         }
         #endregion
         #endregion
