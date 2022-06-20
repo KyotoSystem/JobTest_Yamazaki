@@ -65,10 +65,18 @@
             this.btnMR = new System.Windows.Forms.Button();
             this.btnMC = new System.Windows.Forms.Button();
             this.DispLabel = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.seekView = new System.Windows.Forms.DataGridView();
+            this.btnUp = new System.Windows.Forms.Button();
+            this.btnLeft = new System.Windows.Forms.Button();
+            this.btnRight = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MultiplicationTableView)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.seekView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -76,6 +84,7 @@
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -91,7 +100,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(760, 517);
+            this.tabPage1.Size = new System.Drawing.Size(760, 516);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "MultiplicationTable";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -158,7 +167,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(760, 517);
+            this.tabPage2.Size = new System.Drawing.Size(760, 516);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Caliculator";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -517,6 +526,73 @@
             this.DispLabel.Text = "1234567890";
             this.DispLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnDown);
+            this.tabPage3.Controls.Add(this.btnRight);
+            this.tabPage3.Controls.Add(this.btnLeft);
+            this.tabPage3.Controls.Add(this.btnUp);
+            this.tabPage3.Controls.Add(this.seekView);
+            this.tabPage3.Location = new System.Drawing.Point(4, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(760, 516);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Seek";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // seekView
+            // 
+            this.seekView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.seekView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.seekView.Location = new System.Drawing.Point(6, 6);
+            this.seekView.MultiSelect = false;
+            this.seekView.Name = "seekView";
+            this.seekView.ReadOnly = true;
+            this.seekView.RowTemplate.Height = 21;
+            this.seekView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.seekView.Size = new System.Drawing.Size(620, 491);
+            this.seekView.TabIndex = 3;
+            // 
+            // btnUp
+            // 
+            this.btnUp.Location = new System.Drawing.Point(679, 16);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(42, 33);
+            this.btnUp.TabIndex = 4;
+            this.btnUp.Text = "↑";
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
+            // btnLeft
+            // 
+            this.btnLeft.Location = new System.Drawing.Point(643, 45);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.Size = new System.Drawing.Size(42, 33);
+            this.btnLeft.TabIndex = 5;
+            this.btnLeft.Text = "←";
+            this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
+            // 
+            // btnRight
+            // 
+            this.btnRight.Location = new System.Drawing.Point(715, 45);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(42, 33);
+            this.btnRight.TabIndex = 6;
+            this.btnRight.Text = "→";
+            this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.Location = new System.Drawing.Point(679, 75);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(42, 33);
+            this.btnDown.TabIndex = 7;
+            this.btnDown.Text = "↓";
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -532,6 +608,8 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MultiplicationTableView)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.seekView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -575,6 +653,12 @@
         private System.Windows.Forms.Button btnMR;
         private System.Windows.Forms.Button btnMC;
         private System.Windows.Forms.Label DispLabel;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.Button btnLeft;
+        private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.DataGridView seekView;
     }
 }
 
