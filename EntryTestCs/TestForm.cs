@@ -137,7 +137,7 @@ namespace EntryTestCs
                 cal = new List<string> { };
                 WorkLabel.Text = "";
                 cal.Add(DispLabel.Text);
-                cal.Add(btnDivision.Text);
+                cal.Add(btnMultiple.Text);
                 WorkLabel.Text += cal[0] + "×";
                 Num = DispLabel.Text;
             }
