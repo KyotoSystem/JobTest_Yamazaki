@@ -77,7 +77,7 @@
     <Compile Include="Model\MemoryModel\Mminus.cs" />
     <Compile Include="Model\MemoryModel\Mplus.cs" />
     <Compile Include="Model\PlayerModel\Dwon.cs" />
-    <Compile Include="Model\PlayerModel\Leftcs.cs" />
+    <Compile Include="Model\PlayerModel\Left.cs" />
     <Compile Include="Model\PlayerModel\Player.cs" />
     <Compile Include="Model\PlayerModel\Right.cs" />
     <Compile Include="Model\PlayerModel\Up.cs" />

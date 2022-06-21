@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EntryTestCs.Model.PlayerModel
 {
-    class Leftcs
+    public class Left
     {
     }
 }
