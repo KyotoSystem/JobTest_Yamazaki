@@ -55,13 +55,16 @@
   <ItemGroup>
     <Compile Include="Contller\CalculationContller.cs" />
     <Compile Include="Contller\DataClearContller.cs" />
+    <Compile Include="Contller\EnemyContller.cs" />
     <Compile Include="Contller\FunctionContller.cs" />
     <Compile Include="Contller\MemoryContller.cs" />
+    <Compile Include="Contller\PlayerContller.cs" />
     <Compile Include="Model\CalculationModel\Add.cs" />
     <Compile Include="Model\CalculationModel\Calculation.cs" />
     <Compile Include="Model\CalculationModel\Division.cs" />
     <Compile Include="Model\ClearModel\Clear.cs" />
     <Compile Include="Model\ClearModel\Firstnumber.cs" />
+    <Compile Include="Model\EnemyModel\Enemy.cs" />
     <Compile Include="Model\FunctionModel\Function.cs" />
     <Compile Include="Model\FunctionModel\Inverse.cs" />
     <Compile Include="Model\CalculationModel\Multiple.cs" />
@@ -73,6 +76,11 @@
     <Compile Include="Model\MemoryModel\Memory.cs" />
     <Compile Include="Model\MemoryModel\Mminus.cs" />
     <Compile Include="Model\MemoryModel\Mplus.cs" />
+    <Compile Include="Model\PlayerModel\Dwon.cs" />
+    <Compile Include="Model\PlayerModel\Leftcs.cs" />
+    <Compile Include="Model\PlayerModel\Player.cs" />
+    <Compile Include="Model\PlayerModel\Right.cs" />
+    <Compile Include="Model\PlayerModel\Up.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +113,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

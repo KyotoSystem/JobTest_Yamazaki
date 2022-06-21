@@ -27,6 +27,12 @@ namespace EntryTestCs
             btnMmemory.Enabled = false;
             btnMR.Enabled = false;
             btnMC.Enabled = false;
+            InitializeSeekTable(this.seekView);
+
+            seekView[12, 12].Value = "●";
+
+            seekView[1, 1].Value = "★";
+
         }
 
         #region 九九表の実装
@@ -844,6 +850,74 @@ namespace EntryTestCs
                 grid.Columns[i].Width = (i == 0) ? 0 : 62;
                 grid.Columns[i].HeaderText = String.Format("{0:D}", i);
             }
+        }
+
+        /// <summary>
+        /// 表の初期化
+        /// </summary>
+        /// <param name="grid"></param>
+	    void InitializeSeekTable(DataGridView grid)
+        {
+            grid.ColumnCount = 25;
+            grid.ColumnHeadersHeight = 18; // 460
+            grid.RowHeadersWidth = 24; // 620
+            grid.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            grid.AllowUserToAddRows = false;
+            grid.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+
+            for (int i = 0; i < grid.ColumnCount; i++)
+            {
+                grid.Rows.Add();
+                grid.Rows[i].Height = (i == 0) ? 0 : 18;
+            }
+            for (int i = 0; i < grid.ColumnCount; i++)
+            {
+                grid.Columns[i].Width = (i == 0) ? 0 : 24;
+            }
+
+
+            seekView[5, 5].Value = "×";
+            seekView[6, 5].Value = "×";
+            seekView[7, 5].Value = "×";
+            seekView[8, 5].Value = "×";
+            seekView[9, 5].Value = "×";
+            seekView[10, 5].Value = "×";
+            seekView[5, 6].Value = "×";
+            seekView[5, 7].Value = "×";
+            seekView[5, 8].Value = "×";
+            seekView[5, 9].Value = "×";
+            seekView[5, 10].Value = "×";
+
+            seekView[20, 20].Value = "×";
+            seekView[19, 20].Value = "×";
+            seekView[20, 19].Value = "×";
+            seekView[20, 18].Value = "×";
+
+            seekView[16, 16].Value = "×";
+            seekView[17, 16].Value = "×";
+            seekView[16, 17].Value = "×";
+            seekView[16, 18].Value = "×";
+
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
