@@ -34,7 +34,7 @@ namespace EntryTestCs.Model.PlayerModel
         /// <returns>Y座標</returns>
         public int GetRight()
         {
-            return RightY = Y++;
+            return RightY = Y--;
         }
         #endregion
     }
