@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using EntryTestCs.Contller;
+using EntryTestCs.Enum;
 
 namespace EntryTestCs
 {
@@ -32,6 +33,8 @@ namespace EntryTestCs
             seekView[12, 12].Value = "●";
 
             seekView[1, 1].Value = "★";
+
+            
 
         }
 
@@ -900,24 +903,26 @@ namespace EntryTestCs
 
         }
 
+        PlayerContller player = new PlayerContller();
+
         private void btnUp_Click(object sender, EventArgs e)
         {
-
+            player.GetPlayerMove(PlayerMoveType.Up);
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-
+            player.GetPlayerMove(PlayerMoveType.Down);
         }
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-
+            player.GetPlayerMove(PlayerMoveType.Right);
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-
+            player.GetPlayerMove(PlayerMoveType.Left);
         }
     }
 }

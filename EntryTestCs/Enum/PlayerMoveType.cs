@@ -8,13 +8,9 @@ namespace EntryTestCs.Enum
     public enum PlayerMoveType
     {
         /// <summary>
-        /// 無し
-        /// </summary>
-        None = 0,
-        /// <summary>
         /// 上
         /// </summary>
-        Up,
+        Up = 1,
         /// <summary>
         /// 下
         /// </summary>
