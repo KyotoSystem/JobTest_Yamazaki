@@ -5,11 +5,28 @@ using System.Text;
 
 namespace EntryTestCs.Enum
 {
-    enum PlayerMoveType
+    public enum PlayerMoveType
     {
-        None,
+        /// <summary>
+        /// 無し
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// 上
+        /// </summary>
         Up,
-        Dwon,
+        /// <summary>
+        /// 下
+        /// </summary>
+        Down,
+        /// <summary>
+        /// 右
+        /// </summary>
+        Right,
+        /// <summary>
+        /// 左
+        /// </summary>
+        Left
 
     }
 }
