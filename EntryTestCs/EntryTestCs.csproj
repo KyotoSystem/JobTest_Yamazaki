@@ -55,10 +55,9 @@
   <ItemGroup>
     <Compile Include="Contller\CalculationContller.cs" />
     <Compile Include="Contller\DataClearContller.cs" />
-    <Compile Include="Contller\EnemyContller.cs" />
     <Compile Include="Contller\FunctionContller.cs" />
     <Compile Include="Contller\MemoryContller.cs" />
-    <Compile Include="Contller\PlayerContller.cs" />
+    <Compile Include="Contller\SeekContller.cs" />
     <Compile Include="Enum\PlayerMoveType.cs" />
     <Compile Include="Model\CalculationModel\Add.cs" />
     <Compile Include="Model\CalculationModel\Calculation.cs" />

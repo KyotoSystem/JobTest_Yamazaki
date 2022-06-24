@@ -10,7 +10,7 @@ namespace EntryTestCs.Enum
         /// <summary>
         /// 上
         /// </summary>
-        Up = 1,
+        Up = 0,
         /// <summary>
         /// 下
         /// </summary>
