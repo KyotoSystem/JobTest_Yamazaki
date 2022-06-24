@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using EntryTestCs.Contller;
 using EntryTestCs.Enum;
+using EntryTestCs.Model.PlayerModel;
 
 namespace EntryTestCs
 {
@@ -33,6 +34,8 @@ namespace EntryTestCs
             seekView[12, 12].Value = "●";
 
             seekView[1, 1].Value = "★";
+
+            player._Local += SetLocal;
 
             
 
@@ -904,6 +907,11 @@ namespace EntryTestCs
         }
 
         PlayerContller player = new PlayerContller();
+
+        private void SetLocal(object sender ,Player player)
+        {
+            this.seekView[player._X, player._Y].Value = "●";
+        }
 
         private void btnUp_Click(object sender, EventArgs e)
         {

@@ -7,11 +7,32 @@ using EntryTestCs.Enum;
 
 namespace EntryTestCs.Contller
 {
+    /// <summary>
+    /// 座標更新デリゲート
+    /// </summary>
+    class LocalDelegate : EventArgs
+    {
+        private readonly Player _PlayerData;
+        public Player Player { get { return _PlayerData; } }
+
+        public LocalDelegate(Player player)
+        {
+            _PlayerData = player;
+        }
+    }
 
     class PlayerContller
     {
         #region デリゲート、イベント関連
+        /// <summary>
+        /// 座標更新イベントハンドラ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="player"></param>
         public delegate void LocalDelegate(object sender, Player player);
+        /// <summary>
+        /// 座標更新イベント
+        /// </summary>
         public event LocalDelegate _Local = null;
         #endregion
 
