@@ -11,12 +11,20 @@ namespace EntryTestCs.Model.EnemyModel
         #region メンバ変数
         /// <summary>
         /// X座標
-        /// </summary>
         private int X_Coordinate = 1;
         /// <summary>
         /// Y座標
         /// </summary>
         private int Y_Coordinate = 1;
+
+        /// <summary>
+        /// 削除X座標
+        /// </summary>
+        private int X__Clear = 1;
+        /// <summary>
+        /// 削除Y座標
+        /// </summary>
+        private int Y_Clear = 1;
         #endregion
 
         #region プロパティ
@@ -28,6 +36,15 @@ namespace EntryTestCs.Model.EnemyModel
         /// Y座標
         /// </summary>
         public int _Y { set { Y_Coordinate = value; } get { return Y_Coordinate; } }
+
+        /// <summary>
+        /// 削除X座標
+        /// </summary>
+        public int _XClear { set { X__Clear = value; } }
+        /// <summary>
+        /// 削除Y座標
+        /// </summary>
+        public int _YClear { set { Y_Clear = value; } }
         #endregion
 
         #region コンストラクター
@@ -36,10 +53,12 @@ namespace EntryTestCs.Model.EnemyModel
         /// </summary>
         /// <param name="_x">X座標</param>
         /// <param name="_y">Y座標</param>
-        public Enemy(int _x, int _y)
+        public Enemy(int _x, int _y , int _xclear , int _yclear)
         {
             X_Coordinate = _x;
             Y_Coordinate = _y;
+            X__Clear = _xclear;
+            Y_Clear = _yclear;
         }
         #endregion
 

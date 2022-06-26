@@ -128,7 +128,7 @@ namespace EntryTestCs.Contller
         public void InitialPosition()
         {
             _PlayerData = new Player(12, 12, 12, 12);
-            _EnemyData = new Enemy(1, 1);
+            _EnemyData = new Enemy(1, 1 , 1, 1);
             Max_X_Coordinate = 23;
             Max_Y_Coordinate = 23;
             Min_X_Coordinate = 2;
