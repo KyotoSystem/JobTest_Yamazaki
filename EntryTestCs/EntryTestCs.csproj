@@ -64,6 +64,7 @@
     <Compile Include="Model\CalculationModel\Division.cs" />
     <Compile Include="Model\ClearModel\Clear.cs" />
     <Compile Include="Model\ClearModel\Firstnumber.cs" />
+    <Compile Include="Model\Enemy.cs" />
     <Compile Include="Model\FunctionModel\Function.cs" />
     <Compile Include="Model\FunctionModel\Inverse.cs" />
     <Compile Include="Model\CalculationModel\Multiple.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Model\MemoryModel\Memory.cs" />
     <Compile Include="Model\MemoryModel\Mminus.cs" />
     <Compile Include="Model\MemoryModel\Mplus.cs" />
+    <Compile Include="Model\Obstacle.cs" />
+    <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Seek.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
