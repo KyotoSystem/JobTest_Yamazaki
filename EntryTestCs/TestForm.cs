@@ -8,8 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using EntryTestCs.Contller;
 using EntryTestCs.Enum;
-using EntryTestCs.Model.PlayerModel;
-using EntryTestCs.Model.EnemyModel;
 
 namespace EntryTestCs
 {
@@ -36,11 +34,6 @@ namespace EntryTestCs
 
             seekView[1, 1].Value = "★";
 
-            
-            
-            seek.Set_PlayerLocal += SetPlayerLocal;
-            seek.Set_EnemyLocal += SetEnemyLocal;
-            
 
         }
 
@@ -909,39 +902,25 @@ namespace EntryTestCs
 
         }
 
-        SeekContller seek = new SeekContller();
-
-        private void SetPlayerLocal(object sender, Player player)
-        {
-            this.seekView[player.GetX_Coordinate(), player.GetY_Coordinate()].Value = "●";
-            this.seekView[player.GetX_Clear(), player.GetY_Cleare()].Value = "";
-        }
-        private void SetEnemyLocal(object sender , Enemy enemy)
-        {
-            this.seekView[enemy.GetX_Coordinate(), enemy.GetY_Coordinate()].Value = "★";
-            this.seekView[enemy.GetX_Clear(), enemy.GetY_Clear()].Value = "";
-        }
-
-       
         private void btnUp_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(MoveType.Up);
+            
            
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(MoveType.Down);
+            
         }
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(MoveType.Right);
+            
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(MoveType.Left);
+            
         }
     }
 }

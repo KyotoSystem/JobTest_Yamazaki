@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EntryTestCs.Contller
+namespace EntryTestCs.Model
 {
-     public class SeekContller
+    public class Seek
     {
     }
 }
