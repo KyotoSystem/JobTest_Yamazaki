@@ -20,7 +20,7 @@ namespace EntryTestCs.Model.EnemyModel
         /// <summary>
         /// 削除X座標
         /// </summary>
-        private int X__Clear = 1;
+        private int X_Clear = 1;
         /// <summary>
         /// 削除Y座標
         /// </summary>
@@ -40,7 +40,7 @@ namespace EntryTestCs.Model.EnemyModel
         /// <summary>
         /// 削除X座標
         /// </summary>
-        public int _XClear { set { X__Clear = value; } }
+        public int _XClear { set { X_Clear = value; } }
         /// <summary>
         /// 削除Y座標
         /// </summary>
@@ -57,7 +57,7 @@ namespace EntryTestCs.Model.EnemyModel
         {
             X_Coordinate = _x;
             Y_Coordinate = _y;
-            X__Clear = _xclear;
+            X_Clear = _xclear;
             Y_Clear = _yclear;
         }
         #endregion
@@ -79,6 +79,24 @@ namespace EntryTestCs.Model.EnemyModel
         public int GetY_Coordinate()
         {
             return Y_Coordinate;
+        }
+
+        /// <summary>
+        /// 削除するX座標
+        /// </summary>
+        /// <returns>X座標</returns>
+        public int GetX_Clear()
+        {
+            return X_Clear;
+        }
+
+        /// <summary>
+        /// 削除するY座標
+        /// </summary>
+        /// <returns>Y座標</returns>
+        public int GetY_Clear()
+        {
+            return Y_Clear;
         }
         #endregion
     }

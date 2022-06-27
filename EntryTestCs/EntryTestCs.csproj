@@ -58,7 +58,7 @@
     <Compile Include="Contller\FunctionContller.cs" />
     <Compile Include="Contller\MemoryContller.cs" />
     <Compile Include="Contller\SeekContller.cs" />
-    <Compile Include="Enum\PlayerMoveType.cs" />
+    <Compile Include="Enum\MoveType.cs" />
     <Compile Include="Model\CalculationModel\Add.cs" />
     <Compile Include="Model\CalculationModel\Calculation.cs" />
     <Compile Include="Model\CalculationModel\Division.cs" />

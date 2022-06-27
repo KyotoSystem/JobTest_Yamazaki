@@ -37,7 +37,7 @@ namespace EntryTestCs
             seekView[1, 1].Value = "★";
 
             
-
+            
             seek.Set_PlayerLocal += SetPlayerLocal;
             seek.Set_EnemyLocal += SetEnemyLocal;
             
@@ -919,28 +919,29 @@ namespace EntryTestCs
         private void SetEnemyLocal(object sender , Enemy enemy)
         {
             this.seekView[enemy.GetX_Coordinate(), enemy.GetY_Coordinate()].Value = "★";
+            this.seekView[enemy.GetX_Clear(), enemy.GetY_Clear()].Value = "";
         }
 
        
         private void btnUp_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(PlayerMoveType.Up);
+            seek.GetPlayerMove(MoveType.Up);
            
         }
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(PlayerMoveType.Down);
+            seek.GetPlayerMove(MoveType.Down);
         }
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(PlayerMoveType.Right);
+            seek.GetPlayerMove(MoveType.Right);
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-            seek.GetPlayerMove(PlayerMoveType.Left);
+            seek.GetPlayerMove(MoveType.Left);
         }
     }
 }

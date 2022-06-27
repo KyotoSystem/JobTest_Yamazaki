@@ -101,6 +101,111 @@ namespace EntryTestCs.Contller
         private int _EnemyY;
 
         /// <summary>
+        /// プレイヤの現在地
+        /// </summary>
+        private List<int>_PLocal;
+
+        /// <summary>
+        /// エネミーの現在地
+        /// </summary>
+        private List<int> _ELocal;
+
+        /// <summary>
+        /// 障害物１
+        /// </summary>
+        private List<int>_Obs1;
+
+        /// <summary>
+        /// 障害物２
+        /// </summary>
+        private List<int> _Obs2;
+
+        /// <summary>
+        /// 障害物３
+        /// </summary>
+        private List<int> _Obs3;
+
+        /// <summary>
+        /// 障害物４
+        /// </summary>
+        private List<int> _Obs4;
+
+        /// <summary>
+        /// 障害物５
+        /// </summary>
+        private List<int> _Obs5;
+
+        /// <summary>
+        /// 障害物６
+        /// </summary>
+        private List<int> _Obs6;
+
+        /// <summary>
+        /// 障害物７
+        /// </summary>
+        private List<int> _Obs7;
+
+        /// <summary>
+        /// 障害物８
+        /// </summary>
+        private List<int> _Obs8;
+
+        /// <summary>
+        /// 障害物９
+        /// </summary>
+        private List<int> _Obs9;
+
+        /// <summary>
+        /// 障害物１０
+        /// </summary>
+        private List<int> _Obs10;
+
+        /// <summary>
+        /// 障害物１１
+        /// </summary>
+        private List<int> _Obs11;
+
+        /// <summary>
+        /// 障害物１２
+        /// </summary>
+        private List<int> _Obs12;
+
+        /// <summary>
+        /// 障害物１３
+        /// </summary>
+        private List<int> _Obs13;
+
+        /// <summary>
+        /// 障害物１４
+        /// </summary>
+        private List<int> _Obs14;
+
+        /// <summary>
+        /// 障害物１５
+        /// </summary>
+        private List<int> _Obs15;
+
+        /// <summary>
+        /// 障害物１６
+        /// </summary>
+        private List<int> _Obs16;
+
+        /// <summary>
+        /// 障害物１７
+        /// </summary>
+        private List<int> _Obs17;
+
+        /// <summary>
+        /// 障害物１８        
+        /// </summary>
+        private List<int> _Obs18;
+
+        /// <summary>
+        /// 障害物１９
+        /// </summary>
+        private List<int> _Obs19;
+
+        /// <summary>
         /// プレイヤー操作データ
         /// </summary>
         private Player _PlayerData;
@@ -137,7 +242,29 @@ namespace EntryTestCs.Contller
             _PlayerY = 12;
             _EnemyX = 1;
             _EnemyY = 1;
+            _PLocal = new List<int> { _PlayerData._X, _PlayerData._Y };
+            _ELocal = new List<int> { _EnemyData._X, _EnemyData._Y };
+            _Obs1 = new List<int> { 5, 5 };
+            _Obs2 = new List<int> { 6, 5 };
+            _Obs3 = new List<int> { 7, 5 };
+            _Obs4 = new List<int> { 8, 5 };
+            _Obs5 = new List<int> { 9, 5 };
+            _Obs6 = new List<int> { 10, 5 };
+            _Obs7 = new List<int> { 5, 6 };
+            _Obs8 = new List<int> { 5, 7 };
+            _Obs9 = new List<int> { 5, 8 };
 
+            _Obs10 = new List<int> { 5, 9 };
+            _Obs11 = new List<int> { 5, 10 };
+            _Obs12 = new List<int> { 20, 20 };
+            _Obs13 = new List<int> { 19, 20 };
+            _Obs14 = new List<int> { 20, 19 };
+            _Obs15 = new List<int> { 20, 18 };
+
+            _Obs16 = new List<int> { 16, 16 };
+            _Obs17 = new List<int> { 17, 16 };
+            _Obs18 = new List<int> { 16, 17 };
+            _Obs19 = new List<int> { 16, 18 };
             if (Set_PlayerLocal != null)
             {
                 Set_PlayerLocal(this, _PlayerData);
@@ -152,14 +279,17 @@ namespace EntryTestCs.Contller
         /// 操作情報取得
         /// </summary>
         /// <param name="movetype"></param>
-        public void GetPlayerMove(PlayerMoveType movetype)
+        public void GetPlayerMove(MoveType type)
         {
-            switch (movetype)
+            
+
+            switch (type)
             {
-                case PlayerMoveType.Up:
+                case MoveType.Up:
                     if (_PlayerData._Y >= Min_Y_Coordinate)
                     {
-                        _PlayerData._Y--;
+                        
+                            _PlayerData._Y--;
                         
                     }
                     else
@@ -167,9 +297,10 @@ namespace EntryTestCs.Contller
                         _PlayerData._Y = 24;
                        
                     }
-                    GetPlayerClear(PlayerMoveType.Up);
+                    GetPlayerClear(MoveType.Up);
+                    GetEnemyMove(MoveType.Up);
                     break;
-                case PlayerMoveType.Down:
+                case MoveType.Down:
                     if (_PlayerData._Y <= Max_Y_Coordinate)
                     {
                         _PlayerData._Y++;
@@ -180,9 +311,10 @@ namespace EntryTestCs.Contller
                         _PlayerData._Y = 1;
                         
                     }
-                    GetPlayerClear(PlayerMoveType.Down);
+                    GetPlayerClear(MoveType.Down);
+                    GetEnemyMove(MoveType.Down);
                     break;
-                case PlayerMoveType.Right:
+                case MoveType.Right:
                     if (_PlayerData._X <= Max_X_Coordinate)
                     {
                         _PlayerData._X++;
@@ -191,9 +323,10 @@ namespace EntryTestCs.Contller
                     {
                         _PlayerData._X = 1;
                     }
-                    GetPlayerClear(PlayerMoveType.Right);
+                    GetPlayerClear(MoveType.Right);
+                    GetEnemyMove(MoveType.Right);
                     break;
-                case PlayerMoveType.Left:
+                case MoveType.Left:
                     if (_PlayerData._X >= Min_X_Coordinate)
                     {
                         _PlayerData._X--;
@@ -202,24 +335,31 @@ namespace EntryTestCs.Contller
                     {
                         _PlayerData._X = 24;
                     }
-                    GetPlayerClear(PlayerMoveType.Left);
+                    GetPlayerClear(MoveType.Left);
+                    GetEnemyMove(MoveType.Left);
                     break;
             }
 
-            if (Set_PlayerLocal != null)
+            _PLocal = new List<int> { _PlayerData._X, _PlayerData._Y };
+            if (_Obs1 != _PLocal)
             {
-                Set_PlayerLocal(this, _PlayerData);
+                if (Set_PlayerLocal != null)
+                {
+
+                    Set_PlayerLocal(this, _PlayerData);
+                }
             }
+
         }
         /// <summary>
         /// 削除する操作情報
         /// </summary>
         /// <param name="movetype"></param>
-        public void GetPlayerClear(PlayerMoveType movetype)
+        public void GetPlayerClear(MoveType type)
         {
-            switch (movetype)
+            switch (type)
             {
-                case PlayerMoveType.Up:
+                case MoveType.Up:
                     if (_PlayerY >= Min_Y_Coordinate)
                     {
                         _PlayerData._YClear = _PlayerY--;
@@ -235,7 +375,7 @@ namespace EntryTestCs.Contller
                         _PlayerY = 24;
                     }
                     break;
-                case PlayerMoveType.Down:
+                case MoveType.Down:
                     if (_PlayerY <= Max_Y_Coordinate)
                     {
                         _PlayerData._YClear = _PlayerY++;
@@ -250,7 +390,7 @@ namespace EntryTestCs.Contller
                         _PlayerY = 1;
                     }
                     break;
-                case PlayerMoveType.Right:
+                case MoveType.Right:
                     if (_PlayerX <= Max_X_Coordinate)
                     {
                         _PlayerData._XClear = _PlayerX++;
@@ -265,7 +405,7 @@ namespace EntryTestCs.Contller
                         _PlayerX = 1;
                     }
                     break;
-                case PlayerMoveType.Left:
+                case MoveType.Left:
                     if (_PlayerX >= Min_X_Coordinate)
                     {
                         _PlayerData._XClear = _PlayerX--;
@@ -281,7 +421,142 @@ namespace EntryTestCs.Contller
                     }
                     break;
             }
-            #endregion
+            
         }
+
+        /// <summary>
+        /// 敵情報取得
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public void GetEnemyMove(MoveType type)
+        {
+            switch (type)
+            {
+                case MoveType.Up:
+                    if(_EnemyData._Y >= Min_Y_Coordinate)
+                    {
+                        _EnemyData._Y--;
+                    }
+                    else
+                    {
+                        _EnemyData._Y = 24;
+                    }
+                    GetEnemyClear(MoveType.Up);
+                    break;
+                case MoveType.Down:
+                    if(_EnemyData._Y <= Max_Y_Coordinate)
+                    {
+                        _EnemyData._Y++;
+                    }
+                    else
+                    {
+                        _EnemyData._Y = 1;
+                    }
+                    GetEnemyClear(MoveType.Down);
+                    break;
+                case MoveType.Right:
+                    if(_EnemyData._X <= Max_X_Coordinate)
+                    {
+                        _EnemyData._X++;
+                    }
+                    else
+                    {
+                        _EnemyData._X = 1;
+                    }
+                    GetEnemyClear(MoveType.Right);
+                    break;
+                case MoveType.Left:
+                    if(_EnemyData._X >= Min_X_Coordinate)
+                    {
+                        _EnemyData._X--;
+                    }
+                    else
+                    {
+                        _EnemyData._X = 24;
+                    }
+                    GetEnemyClear(MoveType.Left);
+                    break;
+            }
+            
+            if(Set_EnemyLocal != null)
+            {
+                Set_EnemyLocal(this,_EnemyData);
+            }
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        public void GetEnemyClear(MoveType type)
+        {
+            switch (type)
+            {
+                case MoveType.Up:
+                    if (_EnemyY >= Min_Y_Coordinate)
+                    {
+                        _EnemyData._YClear = _EnemyY--;
+                        _EnemyX = _EnemyData._X;
+                        _EnemyData._XClear = _EnemyX;
+
+
+                    }
+                    else
+                    {
+                        _EnemyData._YClear = _EnemyY--;
+                        _EnemyX = _EnemyData._X;
+                        _EnemyData._XClear = _EnemyX;
+                        _EnemyY = 24;
+                    }
+                    break;
+                case MoveType.Down:
+                    if (_EnemyY <= Max_Y_Coordinate)
+                    {
+                        _EnemyData._YClear = _EnemyY++;
+                        _EnemyX = _EnemyData._X;
+                        _EnemyData._XClear = _EnemyX;
+                    }
+                    else
+                    {
+                        _EnemyData._YClear = _EnemyY++;
+                        _EnemyX = _EnemyData._X;
+                        _EnemyData._XClear = _EnemyX;
+                        _EnemyY = 1;
+                    }
+                    break;
+                case MoveType.Right:
+                    if (_EnemyX <= Max_X_Coordinate)
+                    {
+                        _EnemyData._XClear = _EnemyX++;
+                        _EnemyY = _EnemyData._Y;
+                        _EnemyData._YClear = _EnemyY;
+                    }
+                    else
+                    {
+                        _EnemyData._XClear = _EnemyX++;
+                        _EnemyY = _EnemyData._Y;
+                        _EnemyData._YClear = _EnemyY;
+                        _EnemyX = 1;
+                    }
+                    break;
+                case MoveType.Left:
+                    if (_EnemyX >= Min_X_Coordinate)
+                    {
+                        _EnemyData._XClear = _EnemyX--;
+                        _EnemyY = _EnemyData._Y;
+                        _EnemyData._YClear = _EnemyY;
+                    }
+                    else
+                    {
+                        _EnemyData._XClear = _EnemyX--;
+                        _EnemyY = _EnemyData._Y;
+                        _EnemyData._YClear = _EnemyY;
+                        _EnemyX = 24;
+                    }
+                    break;
+            }
+        }
+        #endregion
     }
 }

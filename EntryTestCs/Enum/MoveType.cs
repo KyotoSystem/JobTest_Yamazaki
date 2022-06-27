@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EntryTestCs.Enum
 {
-    public enum PlayerMoveType
+    public enum MoveType
     {
         /// <summary>
         /// 上
